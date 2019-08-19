@@ -53,13 +53,13 @@ date_default_timezone_set($lang->t('app|timezone'));
 define('SMTP_ENABLED', true);
 define('SMTP_AUTH', true);
 define('SMTP_URL', 'smtp.gmail.com');
-define('SMTP_USER', 'username@gmail.com');
-define('SMTP_PASS', 'password');
+define('SMTP_USER', 'info@lassiq.com');
+define('SMTP_PASS', 'Lassiq1234');
 define('SMTP_PORT', 465);
 define('SMTP_SECURE', 'ssl');
 
 // APPLICATION URL PATHS
-define('BASE_URL','http://jobskee.local:10088/'); // always include the trailing slash at the end
+define('BASE_URL','http://localhost/jobskee-open-source-job-board/'); // always include the trailing slash at the end // Changed base url, Ruba Rammal, 19/08/2019 
 
 // DATABASE SETTINGS
 define('DB_HOST', 'localhost');

@@ -36,7 +36,7 @@
                 <a class="list-group-item text-center">
                     <?php Blocks::showBlockByID(1); ?>
                 </a>
-                <?php if ($job->how_to_apply == ''): ?>
+                <?php if ($job->how_to_apply == ''): ?> 
                 <a class="list-group-item" />
                     <h4 class="list-group-item-heading"><span class="glyphicon glyphicon-heart"></span> <?php _e($applications); ?> <?php echo $lang->t('apply|applications'); ?></h4>
                 </a>

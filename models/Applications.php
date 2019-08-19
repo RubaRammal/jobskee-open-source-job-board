@@ -24,6 +24,12 @@ class Applications
     {
         $job = R::load('jobs', $this->_job_id);
         return $job->title;
+    }    
+    
+    public function getJobBid() 
+    {
+        $job = R::load('jobs', $this->_job_id);
+        return $job->bid;
     }
     
     public function getJobTitleURL() 
@@ -44,6 +50,7 @@ class Applications
         $apply->location = $data['location'];
         $apply->websites = $data['websites'];
         $apply->attachment = $data['attachment'];
+        $apply->bid = $data['bid']; // Add bid field, Ruba Rammal, 19/08/2019
         $apply->token = $data['token'];
         $apply->created = R::isoDateTime();
         $id = R::store($apply);

@@ -56,6 +56,13 @@
             <div class="col-sm-8">
               <input type="file" class="filestyle" data-classButton="btn btn-default btn-lg" id="attachment" name="attachment" data-buttonText="<?php echo $lang->t('jobs|btn_file'); ?>" />
             </div>
+        </div>          
+        
+        <div class="form-group">
+        <label for="bid" class="col-sm-3 control-label input-lg"><?php echo $lang->t('apply|bid'); ?></label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control input-lg" id="bid" name="bid" placeholder="<?php echo $lang->t('apply|bid_ph'); _e($job_bid); ?>" />
+            </div>
         </div>
 
         <div class="form-group">

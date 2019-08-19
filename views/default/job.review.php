@@ -70,6 +70,13 @@
         </div>
 
         <div class="form-group">
+            <label for="bid" class="col-sm-3 control-label input-lg"><?php echo $lang->t('jobs|bid'); ?></label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control input-lg" id="bid" name="bid" value="<?php _e($job->bid); ?>" required />
+            </div>
+        </div>
+
+        <div class="form-group">
             <div class="col-sm-3"></div>
             <div class="col-sm-8">
               <h2><?php echo $lang->t('jobs|company'); ?></h2>

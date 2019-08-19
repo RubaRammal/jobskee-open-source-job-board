@@ -25,6 +25,7 @@ $app->group('/apply', function () use ($app) {
         
         $job = new Applications($job_id);
         $title = $job->getJobTitle();
+        $bid = $job->getJobBid();
         
         $app->render(THEME_PATH . 'apply.new.php', 
                     array('lang' => $lang,
@@ -34,6 +35,7 @@ $app->group('/apply', function () use ($app) {
                         'token'=>$token, 
                         'job_id'=>$job_id, 
                         'job_title'=>$title,
+                        'job_bid'=>$bid,
                         'filestyle'=>ACTIVE));
     });
     

@@ -67,10 +67,16 @@
         <div class="form-group">
         <label for="how_to_apply" class="col-sm-3 control-label input-lg"><?php echo $lang->t('jobs|how_to_apply'); ?></label>
             <div class="col-sm-8">
-              <textarea id="how_to_apply" name="how_to_apply" class="form-control input-lg" rows="2"></textarea>
+              <textarea id="how_to_apply" name="how_to_apply" class="form-control input-lg" rows="2" placeholder="<?php echo $lang->t('jobs|apply_ph'); ?>"></textarea>
             </div>
         </div>
 
+        <div class="form-group">
+            <label for="bid" class="col-sm-3 control-label input-lg"><?php echo $lang->t('jobs|bid'); ?></label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control input-lg" id="bid" name="bid" placeholder="<?php echo $lang->t('jobs|bid_ph'); ?>" required />
+            </div>
+        </div>
         
         <div class="form-group">
             <div class="col-sm-3"></div>

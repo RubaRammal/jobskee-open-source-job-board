@@ -74,6 +74,7 @@ class Jobs
         $job->description = $data['description'];
         $job->perks = $data['perks'];
         $job->how_to_apply = $data['how_to_apply'];
+        $job->bid = $data['bid'];
         $job->company_name = $data['company_name'];
         $job->logo = $data['logo'];
         $job->url = $data['url'];
