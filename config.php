@@ -53,8 +53,8 @@ date_default_timezone_set($lang->t('app|timezone'));
 define('SMTP_ENABLED', true);
 define('SMTP_AUTH', true);
 define('SMTP_URL', 'smtp.gmail.com');
-define('SMTP_USER', 'info@lassiq.com');
-define('SMTP_PASS', 'Lassiq1234');
+define('SMTP_USER', 'username@gmail.com');
+define('SMTP_PASS', 'password');
 define('SMTP_PORT', 465);
 define('SMTP_SECURE', 'ssl');
 
