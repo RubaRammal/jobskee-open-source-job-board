@@ -1,7 +1,11 @@
 <?php include 'header.php'; ?>
 
+<div class="row">
 <h3><?php echo $lang->t('admin|ban_list'); ?></h3>
+</div>
+<div class="row">
 <?php include 'flash.php'; ?>
+</div>
 
 <div class="row">
     <div class="col-md-9">
@@ -26,9 +30,9 @@
                 <td><?php _e($ban->value); ?></td>
                 <td><?php _e(niceDate($ban->created)); ?></td>
                 <td>
-                    <a type="button" class="btn btn-danger btn-xs" title="Delete" href="<?php _e(ADMIN_URL . "ban/delete/{$ban->id}"); ?>">
+                    <button type="button" class="btn btn-danger btn-sm" title="Delete" onclick="window.location.href='<?php _e(ADMIN_URL . "ban/delete/{$ban->id}"); ?>'">
                         <span class="glyphicon glyphicon-remove"></span>
-                    </a>
+                    </button>
                 </td>
             </tr>
             <?php endforeach; ?>

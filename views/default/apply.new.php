@@ -17,7 +17,7 @@
         <div class="form-group">
             <label for="cover_letter" class="col-sm-3 control-label input-lg"><?php echo $lang->t('apply|cover_letter'); ?></label>
             <div class="col-sm-8">
-              <textarea class="col-sm-6 form-control input-lg" id="cover_letter" name="cover_letter" rows="10" required ></textarea>
+              <textarea class="form-control input-lg" id="cover_letter" name="cover_letter" rows="10" required ></textarea>
             </div>
         </div>
 
@@ -54,14 +54,20 @@
         <div class="form-group">
         <label for="attachment" class="col-sm-3 control-label input-lg"><?php echo $lang->t('apply|attachment'); ?></label>
             <div class="col-sm-8">
-              <input type="file" class="filestyle" data-classButton="btn btn-default btn-lg" id="attachment" name="attachment" data-buttonText="<?php echo $lang->t('jobs|btn_file'); ?>" />
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="attachment" name="attachment">
+                <label class="custom-file-label" for="customFile"><?php echo $lang->t('jobs|btn_file'); ?></label>
+              </div>
             </div>
         </div>          
         
         <div class="form-group">
-        <label for="bid" class="col-sm-3 control-label input-lg"><?php echo $lang->t('apply|bid'); ?></label>
-            <div class="col-sm-8">
+            <label for="bid" class="col-sm-3 control-label input-lg"><?php echo $lang->t('jobs|bid'); ?></label>
+            <div class="input-group mb-3 col-sm-8">
               <input type="text" class="form-control input-lg" id="bid" name="bid" placeholder="<?php echo $lang->t('apply|bid_ph'); _e($job_bid); ?>" />
+              <div class="input-group-append">
+                <span class="input-group-text">SAR</span>
+              </div>
             </div>
         </div>
 

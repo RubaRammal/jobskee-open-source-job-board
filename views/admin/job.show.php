@@ -8,31 +8,31 @@
             <h4><?php _e($city); ?> (<?php _e($category); ?>)</h4>
             <h4><a href="<?php _e($job->url); ?>" target="_blank"><?php _e($job->url); ?></a></h4>
             <?php if (userIsValid()): ?>
-                <span class="pull-right">
-                    <a type="button" class="btn btn-info btn-xs" title="<?php echo $lang->t('admin|btn_edit'); ?>" href="<?php _e(ADMIN_URL . "jobs/{$job->id}/edit/{$job->token}"); ?>">
+                <span class="float-left">
+                    <button type="button" class="btn btn-info btn-sm" title="<?php echo $lang->t('admin|btn_edit'); ?>" onclick="window.location.href='<?php _e(ADMIN_URL . "jobs/{$job->id}/edit/{$job->token}"); ?>'">
                         <span class="glyphicon glyphicon-pencil"></span>
-                    </a>
+                    </button>
                     <?php if (!$job->is_featured): ?>
-                        <a type="button" class="btn btn-primary btn-xs" title="<?php echo $lang->t('admin|btn_feature_on'); ?>" href="<?php _e(ADMIN_URL . "jobs/{$job->id}/feature/on/{$job->token}"); ?>">
+                        <button type="button" class="btn btn-primary btn-sm" title="<?php echo $lang->t('admin|btn_feature_on'); ?>" onclick="window.location.href='<?php _e(ADMIN_URL . "jobs/{$job->id}/feature/on/{$job->token}"); ?>'">
                             <span class="glyphicon glyphicon-star"></span>
-                        </a>
+                        </button>
                     <?php else: ?>
-                        <a type="button" class="btn btn-default btn-xs" title="<?php echo $lang->t('admin|btn_feature_off'); ?>" href="<?php _e(ADMIN_URL . "jobs/{$job->id}/feature/off/{$job->token}"); ?>">
+                        <button type="button" class="btn btn-default btn-sm" title="<?php echo $lang->t('admin|btn_feature_off'); ?>" onclick="window.location.href='<?php _e(ADMIN_URL . "jobs/{$job->id}/feature/off/{$job->token}"); ?>'">
                             <span class="glyphicon glyphicon-star"></span>
-                        </a>
+                        </button>
                     <?php endif; ?>
                     <?php if (!$job->status): ?>
-                        <a type="button" class="btn btn-success btn-xs" title="<?php echo $lang->t('admin|btn_activate'); ?>" href="<?php _e(ADMIN_URL . "jobs/{$job->id}/activate/" . accessToken($job->id)); ?>">
+                        <button type="button" class="btn btn-success btn-sm" title="<?php echo $lang->t('admin|btn_activate'); ?>" onclick="window.location.href='<?php _e(ADMIN_URL . "jobs/{$job->id}/activate/" . accessToken($job->id)); ?>'">
                             <span class="glyphicon glyphicon-ok"></span>
-                        </a>
+                        </button>
                     <?php else: ?>
-                        <a type="button" class="btn btn-warning btn-xs" title="<?php echo $lang->t('admin|btn_deactivate'); ?>" href="<?php _e(ADMIN_URL . "jobs/{$job->id}/deactivate/" . accessToken($job->id)); ?>">
+                        <button type="button" class="btn btn-warning btn-sm" title="<?php echo $lang->t('admin|btn_deactivate'); ?>" onclick="window.location.href='<?php _e(ADMIN_URL . "jobs/{$job->id}/deactivate/" . accessToken($job->id)); ?>'">
                             <span class="glyphicon glyphicon-minus"></span>
-                        </a>
+                        </button>
                     <?php endif; ?>
-                    <a type="button" class="btn btn-danger btn-xs" title="<?php echo $lang->t('admin|btn_delete'); ?>" href="<?php _e(ADMIN_URL . "jobs/{$job->id}/delete/{$job->token}"); ?>">
+                    <button type="button" class="btn btn-danger btn-sm" title="<?php echo $lang->t('admin|btn_delete'); ?>" onclick="window.location.href='<?php _e(ADMIN_URL . "jobs/{$job->id}/delete/{$job->token}"); ?>'">
                         <span class="glyphicon glyphicon-remove"></span>
-                    </a>
+                    </button>
                 </span>
             <?php endif; ?>
         </div>
@@ -62,7 +62,7 @@
         <div class="col-md-3">
             <div class="list-group">
                 <a class="list-group-item" href="<?php _e(ADMIN_URL . "applications/jobs/{$job->id}"); ?>" />
-                    <h4 class="list-group-item-heading"><span class="glyphicon glyphicon-heart"></span> <?php _e($applications); ?> <?php echo $lang->t('apply|applications'); ?></h4>
+                    <h4 class="list-group-item-heading"> <?php _e($applications); ?> <?php echo $lang->t('apply|applications'); ?></h4>
                 </a>
             </div>
         </div>

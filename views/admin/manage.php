@@ -1,5 +1,5 @@
 <?php include 'header.php'; ?>
-
+<div class="row">
 <?php foreach($categories as $category): ?>
 <a name="<?php _e($category->url); ?>"></a>
 <h3><?php _e($category->name); ?> <?php echo $lang->t('jobs|jobs'); ?></h3>
@@ -10,7 +10,7 @@
         <span style="color: #269abc; text-decoration: underline;"><?php _e($job->title); ?></span>&nbsp;
         <span style="color: #000; font-weight: bold;"><?php _e($job->company_name); ?></span>
         <?php if ($job->is_featured): ?><span class="label label-warning">FEATURED</span><?php endif; ?>
-        <span class="label label-default pull-right"><?php niceDate($job->created); ?></span>
+        <span class="label label-default float-right"><?php niceDate($job->created); ?></span>
     </h4>
     </a>
 <?php endforeach; ?>
@@ -19,8 +19,10 @@
     </a>
     
 </div>
-<p class="pull-right"><a href="#top"><?php echo $lang->t('jobs|back_to_top'); ?></a></p>
+<p class="float-right"><a href="#top"><?php echo $lang->t('jobs|back_to_top'); ?></a></p>
 
 <?php endforeach; ?>
+
+</div>
 
 <?php include 'footer.php'; ?>

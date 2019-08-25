@@ -1,12 +1,11 @@
 body {
-  padding-top: 70px;
   padding-bottom: 30px;
 }
 
 .theme-dropdown .dropdown-menu {
-  display: block;
+/*  display: block;
   position: static;
-  margin-bottom: 20px;
+  margin-bottom: 20px;*/
 }
 
 .theme-showcase > p > .btn {
@@ -29,4 +28,35 @@ body {
 
 .job-rss {
   background-color: #ff6600 !important;
+}
+
+.row {
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+}
+
+.well {
+  margin: 20px 0 20px 0;
+  padding: 10px 20px 10px 20px;
+  background-color: #e9ecef;  
+  /*border-radius: 10px;*/
+
+}
+
+.view-jobs {
+  color: #c1c7c7; 
+}
+
+.view-jobs:hover {
+  color: #727474; 
+}
+
+.list-group {
+  margin-bottom: 20px;
+}
+
+.alert {
+  /*border-radius: 0px;*/
+  border: none;
 }

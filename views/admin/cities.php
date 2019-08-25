@@ -9,8 +9,8 @@
         <th width="10%"><?php echo $lang->t('admin|tbl_date'); ?></th>
         <th width="20%"><?php echo $lang->t('admin|tbl_company'); ?></th>
         <th width="40%"><?php echo $lang->t('admin|tbl_title'); ?></th>
-        <th width="15%"><?php echo $lang->t('admin|tbl_category'); ?></th>
-        <th width="15%"><?php echo $lang->t('admin|tbl_action'); ?></th>
+        <th width="0%"><?php echo $lang->t('admin|tbl_category'); ?></th>
+        <th width="20%"><?php echo $lang->t('admin|tbl_action'); ?></th>
     </tr>
     </thead>
     <tbody>

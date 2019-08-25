@@ -1,7 +1,11 @@
 <?php include 'header.php'; ?>
 
+<div class="row">
 <h3><?php echo $lang->t('admin|manage'); ?> <?php echo $lang->t('link|cities'); ?></h3>
+</div>
+<div class="row">
 <?php include 'flash.php'; ?>
+</div>
 
 
 <div class="row">
@@ -15,8 +19,8 @@
             <th width="20%"><?php echo $lang->t('admin|tbl_name'); ?></th>
             <th width="40%"><?php echo $lang->t('admin|tbl_meta_desc'); ?></th>
             <th width="15%"><?php echo $lang->t('admin|tbl_url'); ?></th>
-            <th width="10%"><?php echo $lang->t('admin|tbl_sort'); ?></th>
-            <th width="10%"><?php echo $lang->t('admin|tbl_action'); ?></th>
+            <th width="0%"><?php echo $lang->t('admin|tbl_sort'); ?></th>
+            <th width="20%"><?php echo $lang->t('admin|tbl_action'); ?></th>
         </tr>
         </thead>
         <tbody>
@@ -29,12 +33,12 @@
             <td><?php _e($cit->url); ?></td>
             <td><?php _e($cit->sort); ?></td>
             <td>
-                <a type="button" class="btn btn-info btn-xs" title="<?php echo $lang->t('admin|btn_edit'); ?>" href="<?php _e(ADMIN_MANAGE . "/cities/{$cit->id}/edit"); ?>">
+                <button type="button" class="btn btn-info btn-sm" title="<?php echo $lang->t('admin|btn_edit'); ?>"onclick="window.location.href='<?php _e(ADMIN_MANAGE . "/cities/{$cit->id}/edit"); ?>'">
                     <span class="glyphicon glyphicon-pencil"></span>
-                </a>
-                <a type="button" class="btn btn-danger btn-xs" title="<?php echo $lang->t('admin|btn_delete'); ?>" href="<?php _e(ADMIN_MANAGE . "/cities/{$cit->id}/delete"); ?>">
+                </button>
+                <button type="button" class="btn btn-danger btn-sm" title="<?php echo $lang->t('admin|btn_delete'); ?>" onclick="window.location.href='<?php _e(ADMIN_MANAGE . "/cities/{$cit->id}/delete"); ?>'">
                     <span class="glyphicon glyphicon-remove"></span>
-                </a>
+                </button>
             </td>
         </tr>
         <?php endforeach; ?>

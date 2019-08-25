@@ -2,15 +2,15 @@
 <?php include 'search-form.php'; ?>
 
 <?php include 'flash.php'; ?>
-<h3><?php _e($categ->name); ?> <?php echo $lang->t('jobs|jobs'); ?>  <a href="<?php _e(BASE_URL ."categories/{$categ->id}/{$categ->url}/rss"); ?>" target="_blank" class="badge job-rss">RSS</a></h3>
+<h4><?php _e($categ->name); ?> <?php echo $lang->t('jobs|jobs'); ?> </h4>
 <div class="list-group">
 <?php foreach($jobs as $job): ?>    
   <a class="list-group-item <?php if ($job->is_featured): ?>job-highlight<?php endif; ?>" href="<?php _e(BASE_URL ."jobs/{$job->id}/". slugify($job->title ." {$lang->t('jobs|at')} ". $job->company_name)); ?>">
-    <h4>
+    <h5>
         <span class="job-title"><?php _e($job->title); ?></span>&nbsp;
         <span class="job-company"><?php _e($job->company_name); ?></span>
-        <span class="badge pull-right"><?php niceDate($job->created); ?></span>
-    </h4>
+        <span class="badge badge-secondary pull-right"><?php niceDate($job->created); ?></span>
+    </h5>
     </a>
 <?php endforeach; ?>  
 </div>

@@ -4,9 +4,9 @@
     <div class="col-md-12">
         <div class="form-group">
             <h3 class="text-center">
-                <span class="label label-default"><?php echo $lang->t('jobs|step1'); ?></span>
-                <span class="label label-default"><?php echo $lang->t('jobs|step2'); ?></span>
-                <span class="label label-info"><?php echo $lang->t('jobs|step3'); ?></span>
+                <span class="badge badge-secondary"><?php echo $lang->t('jobs|step1'); ?></span>
+                <span class="badge badge-secondary"><?php echo $lang->t('jobs|step2'); ?></span>
+                <span class="badge badge-info"><?php echo $lang->t('jobs|step3'); ?></span>
             </h3>
             <hr />
         </div>
