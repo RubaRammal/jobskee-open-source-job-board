@@ -8,7 +8,7 @@
             <h4><?php _e($city); ?> (<?php _e($category); ?>)</h4>
             <h4><a href="<?php _e($job->url); ?>" target="_blank"><?php _e($job->url); ?></a></h4>
             <?php if (userIsValid()): ?>
-                <span class="float-left">
+                <span class="float-right">
                     <button type="button" class="btn btn-info btn-sm" title="<?php echo $lang->t('admin|btn_edit'); ?>" onclick="window.location.href='<?php _e(ADMIN_URL . "jobs/{$job->id}/edit/{$job->token}"); ?>'">
                         <span class="glyphicon glyphicon-pencil"></span>
                     </button>

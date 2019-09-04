@@ -1,5 +1,5 @@
 <?php include 'header.php'; ?>
-    <div class="row">
+    <div class="row list form-job text-right">
         <div class="col-md-9">
             <?php include 'flash.php'; ?>
             <h2><?php _e($job->title); ?></h2>
@@ -19,29 +19,28 @@
         <hr />
     </div>
     </div>
-    <div class="row">
-        <div class="col-md-9">
-            <div class="lead">
+    <div class="row text-right">
+        <div class="col-md-8">
+            <div class="lead list form-job">
                 <?php echo Parsedown::instance()->parse($job->description); ?>
-            </div>
             <?php if ($job->perks != ''): ?>
-                <h3><?php echo $lang->t('jobs|perks'); ?></h3>
-                <p class="lead">
+                    <h3><?php echo $lang->t('jobs|perks'); ?></h3>
                     <?php _e($job->perks,'r'); ?>
-                </p>
+               
             <?php endif; ?>
+             </div>
         </div>
-        <div class="col-md-3">
-            <div class="list-group">
-                <a class="list-group-item text-center">
+        <div class="col-md-4">
+            <div class="list-group list list-layout">
+                <a class="list-group-item text-center item-layout apply-item">
                     <?php Blocks::showBlockByID(1); ?>
                 </a>
                 <?php if ($job->how_to_apply == ''): ?> 
-                <a class="list-group-item  text-center" />
+                <a class="list-group-item  text-center item-layout apply-item" />
                     <h4 class="list-group-item-heading"> <?php _e($applications); ?> <?php echo $lang->t('apply|applications'); ?></h4>
                 </a>
-                <span class="list-group-item  text-center">
-                    <button class="btn btn-primary btn-lg btn-block" onclick="window.location.href='<?php _e(BASE_URL . "apply/{$job->id}"); ?>';"><?php echo $lang->t('apply|apply_now'); ?></button>
+                <span class="list-group-item  text-center item-layout apply-item">
+                    <button class="btn btn-primary btn-lg btn-block all-btns" onclick="window.location.href='<?php _e(BASE_URL . "apply/{$job->id}"); ?>';"><?php echo $lang->t('apply|apply_now'); ?></button>
                     <?php endif; ?>
                 </span>
             </div>

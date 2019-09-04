@@ -8,7 +8,7 @@
         </div>
     
     </div> <!-- /container -->
-    
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>    <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="<?php _e(THEME_ASSETS); ?>js/bootstrap.min.js"></script>    
@@ -46,8 +46,27 @@
         ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
         })();
+
+
     </script>
 
     <?php endif; ?>
+
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+        
+        $("#job-logo").change(function() {
+            var filename = $(this).val().replace(/C:\\fakepath\\/i, '');
+            $("#custom-logo").text(filename);
+        })
+
+        $("#attachment").change(function() {
+            var path = $(this).val().replace(/C:\\fakepath\\/i, '');
+            $("#attachment-label").text(path);
+        })
+        
+})
+    </script>
   </body>
 </html>
