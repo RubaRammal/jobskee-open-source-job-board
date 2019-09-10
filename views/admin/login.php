@@ -1,13 +1,12 @@
 <?php include 'header.php'; ?>
 <?php include 'flash.php'; ?>
-
 <form class="form-horizontal" role="form" method="post" action="<?php _e(BASE_URL .'admin/authenticate'); ?>">
   <div class="form-group">
     <label class="col-sm-2 control-label"></label>
     <div class="col-sm-5">
       <h3><?php echo $lang->t('admin|login_to_admin', APP_NAME); ?></h3>
     </div>
-  </div>    
+  </div>  
   <div class="form-group">
     <label for="email" class="col-sm-2 control-label"><?php echo $lang->t('admin|email'); ?></label>
     <div class="col-sm-5">

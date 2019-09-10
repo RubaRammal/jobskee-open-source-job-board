@@ -26,9 +26,22 @@ $app->group('/search', function () use ($app) {
         
         global $lang;
         $s = new Search();
+        $user_id = USER::getUserIdByEmail($_SESSION['email']);
+        if(reqularUserIsValid()){
+            if($_SESSION['permission']['jobPoster'] == True){
+                $jobs = $s->searchJobsAddedByUser($terms,$user_id);
+                $count = $s->countJobsAddedByUser($terms,$user_id);
+            }else{
+                $jobs = $s->searchJobsByUserCategory($terms,$user_id);
+                $count = $s->countJobsByUserCategory($terms,$user_id);
+            }
+        }else{
+            $jobs = $s->searchJobs($terms);
+            $count = $s->countJobs($terms);
+        }
+
+         
         
-        $jobs = $s->searchJobs($terms);
-        $count = $s->countJobs($terms);
         
         $app->render(THEME_PATH . 'search.php', 
                     array('lang' => $lang,

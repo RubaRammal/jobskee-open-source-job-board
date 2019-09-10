@@ -116,7 +116,7 @@ function isJobPostAllowed() {
 function validateUser() {
     global $lang;
     $app = \Slim\Slim::getInstance();
-    if (!isset($_SESSION['email']) || !$_SESSION['email']) {
+    if ((!isset($_SESSION['email']) || !$_SESSION['email']) && (!isset($_SESSION['is_admin']) || !$_SESSION['is_admin'] )) {
         $app->flash('danger', $lang->t('alert|login_needed'));
         $app->redirect(LOGIN_URL);
     } else {
@@ -137,6 +137,33 @@ function userIsValid() {
     } else {
         $admin = R::findOne('admin', ' email=:email ', array(':email'=>$_SESSION['email']));
         if (isset($admin) && $admin->id) {
+            return true;
+        }
+        return false;
+    }
+}
+
+function validateReqularUser() {
+    global $lang;
+    $app = \Slim\Slim::getInstance();
+    if (!isset($_SESSION['email']) || !$_SESSION['email']) {
+        $app->flash('danger', $lang->t('alert|login_needed'));
+        $app->redirect(USER_LOGIN_URL);
+    } else {
+        $user = R::findOne('user', ' email=:email ', array(':email'=>$_SESSION['email']));
+        if (!$user->id) {
+            $app->flash('danger', $lang->t('alert|invalid_login'));
+            $app->redirect(USER_LOGIN_URL);
+        }
+    }
+}
+
+function reqularUserIsValid() {
+    if ((!isset($_SESSION['email']) || !$_SESSION['email']) && (!isset($_SESSION['is_user']) || !$_SESSION['is_user'] )) {
+        return false;
+    } else {
+        $user = R::findOne('user', ' email=:email ', array(':email'=>$_SESSION['email']));
+        if (isset($user) && $user->id) {
             return true;
         }
         return false;
@@ -203,4 +230,12 @@ function curlGet($url) {
     ));
     $resp = curl_exec($curl);
     curl_close($curl);
+}
+
+function getControllersNames(){
+    $controllers = array();
+    foreach(glob(CONTROLLERS_PATH.'*.php') as $file) {
+        $controllers[] =  str_replace('.php','',basename($file));
+    }
+    return $controllers;
 }

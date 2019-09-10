@@ -15,8 +15,22 @@ require 'config.php';
 /*
  * Load category and city values
  */
-$categories = Categories::findCategories();
+/*
+* load user permissions
+*/
+if(reqularUserIsValid()){
+    $user_group = R::load('user_group',$_SESSION['user_group_id']);
+    $user_permissions=$user_group['permission'];
+ }
+
+if(reqularUserIsValid() && $_SESSION['permission']['jobPoster'] == False){
+    $user_id = USER::getUserIdByEmail($_SESSION['email']);
+    $categories = Categories::findUserCategories($user_id);
+}else{
+    $categories = Categories::findCategories();
+}
 $cities = Cities::findCities();
+
 
 /*
  * Load all existing controllers
@@ -62,7 +76,12 @@ $app->get('/(:page)', function ($page=null) use ($app) {
     
         $j = new Jobs();
         foreach ($categories as $cat) {
-            $jobs[$cat->id] = $j->getJobs(ACTIVE, $cat->id, 0, HOME_LIMIT);
+            if(reqularUserIsValid() && $_SESSION['permission']['jobPoster'] == True){
+                $user_id = USER::getUserIdByEmail($_SESSION['email']);
+                $jobs[$cat->id] = $j->getUserJobs($user_id,ACTIVE, $cat->id, 0, HOME_LIMIT);
+            }else{
+                $jobs[$cat->id] = $j->getJobs(ACTIVE, $cat->id, 0, HOME_LIMIT);
+            }
         }
         
         $app->render(THEME_PATH . 'home.php', 

@@ -7,9 +7,9 @@
       <form class="form-horizontal" role="form" action="<?php _e(ADMIN_URL); ?>jobs/review" method="post" enctype="multipart/form-data">
         <div class="form-group">
             <h3 class="text-center">
-                <span class="badge badge-info"><?php echo $lang->t('jobs|step1'); ?></span>
-                <span class="badge badge-secondary"><?php echo $lang->t('jobs|step2'); ?></span>
-                <span class="badge badge-secondary"><?php echo $lang->t('jobs|step3'); ?></span>
+                <span class="label label-info"><?php echo $lang->t('jobs|step1'); ?></span>
+                <span class="label label-default"><?php echo $lang->t('jobs|step2'); ?></span>
+                <span class="label label-default"><?php echo $lang->t('jobs|step3'); ?></span>
             </h3>
         </div>
         <hr />
@@ -67,19 +67,10 @@
         <div class="form-group">
         <label for="how_to_apply" class="col-sm-3 control-label input-lg"><?php echo $lang->t('jobs|how_to_apply'); ?></label>
             <div class="col-sm-8">
-              <textarea id="how_to_apply" name="how_to_apply" class="form-control input-lg" rows="2" placeholder="<?php echo $lang->t('jobs|apply_ph'); ?>"></textarea>
+              <textarea id="how_to_apply" name="how_to_apply" class="form-control input-lg" rows="2"></textarea>
             </div>
         </div>
 
-        <div class="form-group">
-            <label for="bid" class="col-sm-3 control-label input-lg"><?php echo $lang->t('jobs|bid'); ?></label>
-            <div class="input-group mb-3 col-sm-8">
-              <input type="text" class="form-control input-lg" id="bid" name="bid" placeholder="<?php echo $lang->t('jobs|bid_ph'); ?>" required />
-              <div class="input-group-append">
-                <span class="input-group-text">SAR</span>
-              </div>
-            </div>
-        </div>
         
         <div class="form-group">
             <div class="col-sm-3"></div>
@@ -99,10 +90,7 @@
         <div class="form-group">
         <label for="logo" class="col-sm-3 control-label input-lg"><?php echo $lang->t('jobs|logo'); ?></label>
             <div class="col-sm-8">
-              <div class="custom-file">
-                <input type="file" class="custom-file-input" id="logo" name="logo">
-                <label class="custom-file-label" for="customFile"><?php echo $lang->t('jobs|btn_logo'); ?></label>
-              </div>
+              <input type="file" class="filestyle" data-classButton="btn btn-default btn-lg" id="logo" name="logo" accept="image/*" data-buttonText="<?php echo $lang->t('jobs|btn_logo'); ?>" />
             </div>
         </div>
 

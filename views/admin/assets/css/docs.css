@@ -33,7 +33,7 @@
 
 body {
   position: relative; /* For scrollyspy */
-  /*padding-top: 50px;*/ /* Account for fixed navbar */
+  padding-top: 50px; /* Account for fixed navbar */
 }
 
 /* Keep code small in tables on account of limited space */
@@ -994,7 +994,7 @@ h1[id] {
 .bs-customizer label {
   margin-top: 10px;
   font-weight: 500;
-  /*color: #444;*/
+  color: #444;
 }
 .bs-customizer h2 {
   margin-top: 0;

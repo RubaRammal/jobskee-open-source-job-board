@@ -14,10 +14,19 @@ $app->group('/apply', function () use ($app) {
     
     // get job post form
     $app->get('/:job_id(/)', 'isBanned', function ($job_id) use ($app) {
-        
         global $lang;
         
         $token = token();
+        if(reqularUserIsValid()){
+            $modelUser = new User();
+            $user_id = $modelUser->getUserIdByEmail($_SESSION['email']);
+            $jobApplicant = $_SESSION['permission']['jobApplicant'];
+
+            IF($jobApplicant == False){
+                $app->flash('danger', $lang->t('jobs|no_permission'));
+                $app->redirect(BASE_URL . "apply/{$data['job_id']}");                
+            }
+        }
         
         $seo_title = $lang->t('apply|seo_title') .' | '. APP_NAME;
         $seo_desc = $lang->t('apply|seo_desc') .' | '. APP_NAME;
@@ -45,6 +54,13 @@ $app->group('/apply', function () use ($app) {
         global $lang;
         
         $data = $app->request->post();
+
+        if(reqularUserIsValid()){
+            $user = R::findOne('user', ' email=:email', array(':email'=>$_SESSION['email']));
+            $data['email'] = $_SESSION['email'];
+            $data['user_id'] = $user['id'];
+            $data['full_name'] = $user['firstname'] . ' ' .$user['lastname'];
+        }
         
         if (Banlist::isBanned('email', $data['email']) 
                 || Banlist::isBanned('ip', $_SERVER['REMOTE_ADDR'])) {
@@ -53,7 +69,7 @@ $app->group('/apply', function () use ($app) {
         }
         
         $data = escape($data);
-        
+    
         if ($data['trap'] != '') {
             $app->redirect(BASE_URL . "apply/{$data['job_id']}");
         }

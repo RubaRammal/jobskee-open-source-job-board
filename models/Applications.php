@@ -53,6 +53,11 @@ class Applications
         $apply->bid = $data['bid']; // Add bid field, Ruba Rammal, 19/08/2019
         $apply->token = $data['token'];
         $apply->created = R::isoDateTime();
+
+        if(ISSET($data['user_id'])){
+            $apply->id = $data['user_id'];
+        }
+
         $id = R::store($apply);
         
         $job = R::load('jobs', $this->_job_id);
@@ -84,6 +89,24 @@ class Applications
         }
         return $apps;
     }
+
+    public function getUserApplications($start,$user_id,$jobPoster)
+    {
+        if (isset($this->_job_id)) {
+            $apps = R::findAll('applications', " job_id=:job_id ORDER BY created DESC LIMIT :start, :limit ", array(':job_id'=>$this->_job_id, ':start'=>$start, ':limit'=>LIMIT));
+        } else {
+            if($jobPoster == True){
+                $row = R::getAll('select a.* from applications a left join jobs j on j.id = a.job_id where j.user_id =:user_id'
+                ,array(':user_id'=>$user_id)
+            );
+            $apps = R::convertToBeans('applications',$row);
+
+            }else{
+                $apps = R::findAll('applications', " user_id=:user_id ORDER BY created DESC LIMIT :start, :limit ", array(':user_id'=>$user_id,':start'=>$start, ':limit'=>LIMIT));
+            }
+        }
+        return $apps;
+    }
     
     public function countApplications()
     {
@@ -94,4 +117,22 @@ class Applications
         }
         return $apps;
     }
+
+    public function countUserApplications($user_id,$jobPoster)
+    {
+        if (isset($this->_job_id)) {
+            $apps = R::count('applications', ' job_id=:job_id ORDER BY created DESC ', array(':job_id'=>$this->_job_id));
+        } else {
+            if($jobPoster == True){
+                $apps = R::exec('select count(*) from applications a left join jobs j on j.id = a.job_id where j.user_id =:user_id'
+                ,array(':user_id'=>$user_id)
+            );
+            }else{
+                $apps = R::count('applications', ' user_id=:user_id ORDER BY created DESC ', array(':user_id'=>$user_id));
+            }
+        }
+        return $apps;
+    }
+
+    
 }

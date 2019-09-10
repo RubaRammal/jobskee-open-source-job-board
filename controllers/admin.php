@@ -30,7 +30,6 @@ $app->group('/admin', function () use ($app) {
     
     // login admin form
     $app->get('/login', function () use ($app) {
-        
         global $lang;
 
         $val = array('lang' => $lang,
@@ -51,6 +50,7 @@ $app->group('/admin', function () use ($app) {
         global $lang;
 
         $data = $app->request->post();
+        
         $admin = R::findOne('admin', ' email=:email AND password=:password ', array(':email'=>$data['email'], ':password'=>sha1($data['password'])));
         if (isset($admin) && $admin->id) {
             

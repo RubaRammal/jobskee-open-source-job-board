@@ -11,9 +11,14 @@
 session_start();
 ini_set('default_charset', 'utf-8');
 
+
 // ENGLISH TRANSLATION
-define('APP_LANG', 'en');
-setlocale(LC_ALL, 'en_EN');
+// define('APP_LANG', 'en');
+// setlocale(LC_ALL, 'en_EN');
+
+// ARABIC TRANSLATION
+define('APP_LANG', 'ar');
+setlocale(LC_ALL, 'ar_AR');
 
 // FRENCH TRANSLATION
 // define('APP_LANG', 'fr');
@@ -36,7 +41,8 @@ define('APP_NAME', $lang->t('app|name'));
 define('APP_DESC', $lang->t('app|desc'));
 define('APP_AUTHOR', 'Elinore Tenorio (elinore.tenorio@gmail.com)');
 define('APP_MODE', 'development'); // set to 'production' if site is live, affects RedBean not being frozen if not in correct mode
-define('APP_THEME', 'default'); // set to the theme folder name you are using, found in /views directory
+//define('APP_THEME', 'default'); // set to the theme folder name you are using, found in /views directory
+define('APP_THEME', 'Freelance'); 
 
 // TIMEZONE
 date_default_timezone_set($lang->t('app|timezone'));
@@ -89,6 +95,8 @@ define('ALLOW_JOB_POST', 1); // set (1) to allow job posting and (0) to turn off
 // CORE APPLICATION PATH
 define('APP_PATH', str_replace(DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR, DIRECTORY_SEPARATOR, dirname(__FILE__)) . DIRECTORY_SEPARATOR);
 define('ADMIN_URL', BASE_URL . 'admin/'); // always include the trailing slash at the end
+define('USER_URL', BASE_URL . 'user/'); // always include the trailing slash at the end
+
 
 // CORE CONSTANTS
 define('ACTIVE', 1);
@@ -100,6 +108,8 @@ define('ASSET_URL', BASE_URL . 'assets/');
 define('ATTACHMENT_PATH', 'assets/attachments/');
 define('IMAGE_PATH', 'assets/images/');
 define('LOGIN_URL', ADMIN_URL . 'login');
+define('USER_LOGIN_URL', USER_URL . 'login');
+
 
 // MVC PATHS
 define('MODEL_PATH', 'models/');
@@ -120,6 +130,7 @@ if (APP_MODE == 'production') {
     R::freeze();
 	$debug = false;
 } else {
+    R::freeze(false);
 	$debug = true;
 }
 

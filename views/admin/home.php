@@ -2,7 +2,7 @@
 
 <?php include 'flash.php'; ?>
 
-<div class="row" style="display:none;">
+<div class="row">
   <div class="col-md-6">
     <a class="twitter-timeline" href="https://twitter.com/jobskee_updates" data-widget-id="672612615797866496">Updates by @jobskee_updates</a>
   </div>
@@ -12,8 +12,6 @@
   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 </div>
 
-<div class="row">
-<div class="col-md-12">
 <h3><?php echo $lang->t('admin|inactive'); ?> <?php echo $lang->t('jobs|jobs'); ?></h3>
 <?php foreach($categories as $category): ?>
     <strong><?php _e($category->name); ?> <?php echo $lang->t('jobs|jobs'); ?></strong>
@@ -63,6 +61,5 @@
         </table>
     </div>
 <?php endforeach; ?>
-</div>
-</div>
+
 <?php include 'footer.php'; ?>

@@ -79,6 +79,9 @@ class Jobs
         $job->logo = $data['logo'];
         $job->url = $data['url'];
         $job->is_featured = $data['is_featured'];
+        if (ISSET($data['user_id'])){
+            $job->user_id = $data['user_id'];
+        }
         $id = R::store($job);
         
         $data['access'] = accessToken($id);
@@ -161,6 +164,20 @@ class Jobs
             $jobs = R::findAll('jobs', 
                     " status=:status AND category=:category ORDER BY created DESC", 
                     array(':status'=>$status, ':category'=>$category));
+        }
+        return $jobs;
+    }
+
+    public function getUserJobs($user_id,$status=1, $category=1, $start=null, $limit=null)
+    {
+        if (!is_null($start) && !is_null($limit)) {
+            $jobs = R::findAll('jobs', 
+                    " status=:status AND category=:category AND user_id=:user_id ORDER BY created DESC LIMIT :start, :limit", 
+                    array(':status'=>$status, ':category'=>$category,':user_id'=>$user_id, ':start'=>$start, ':limit'=>$limit));
+        } else {
+            $jobs = R::findAll('jobs', 
+                    " status=:status AND category=:category AND user_id=:user_id ORDER BY created DESC", 
+                    array(':status'=>$status, ':category'=>$category, ':user_id'=>$user_id));
         }
         return $jobs;
     }

@@ -74,5 +74,15 @@ class Categories {
         $categories = R::findAll('categories', ' ORDER BY sort ASC ');
         return $categories;
     }
+
+    public static function findUserCategories($user_id) 
+    {
+        $rows = R::getAll('select * from categories c join user_category uc on uc.category_id = c.id where uc.user_id=:user_id ORDER BY c.sort ASC ',
+        array(':user_id'=>$user_id)
+        );
+        $categories = R::convertToBeans('categories',$rows);
+
+        return $categories;
+    }
     
 }

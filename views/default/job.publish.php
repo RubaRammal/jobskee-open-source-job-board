@@ -4,9 +4,9 @@
     <div class="col-md-12">
         <div class="form-group">
             <h3 class="text-center">
-                <span class="badge badge-secondary"><?php echo $lang->t('jobs|step1'); ?></span>
-                <span class="badge badge-secondary"><?php echo $lang->t('jobs|step2'); ?></span>
-                <span class="badge badge-info"><?php echo $lang->t('jobs|step3'); ?></span>
+                <span class="label label-default"><?php echo $lang->t('jobs|step1'); ?></span>
+                <span class="label label-default"><?php echo $lang->t('jobs|step2'); ?></span>
+                <span class="label label-info"><?php echo $lang->t('jobs|step3'); ?></span>
             </h3>
             <hr />
         </div>
@@ -34,7 +34,7 @@
     </div>
     </div>
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-9">
             <div class="lead">
                 <?php echo Parsedown::instance()->parse($job->description); ?>
             </div>
@@ -45,7 +45,7 @@
                 </p>
             <?php endif; ?>
         </div>
-        <div class="col-md-4"></div>
+        <div class="col-md-3"></div>
     </div>
     <?php if ($job->how_to_apply != ''): ?>
     <div class="well">
